@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'Discover/HomeRecommendHomeBanner.dart';
-import 'Discover/HomeRecommendSectionTitle.dart';
-import 'Discover/HomeRecommendTab.dart';
+import 'Discover/recommend_game_view.dart';
+import 'Discover/recommend_banner.dart';
+import 'Discover/recommend_section_title.dart';
+import 'Discover/recommend_tab_view.dart';
 
 void main() => runApp(const MyApp());
 
@@ -24,9 +25,10 @@ class MyApp extends StatelessWidget {
           child: Column(
             children: [
               HomeRecommendBanner(),
-              HomeRecommendSectionTitle("好玩的游戏"),
-              HomeRecommendTabView(),
+              HomeRecommendSectionTitle("快速匹配"),
+              HomeRecommendGameView(),
               HomeRecommendSectionTitle("发现好友"),
+              HomeRecommendTabView(),
             ],
           ),
         ),
