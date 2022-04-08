@@ -52,21 +52,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-
-/*正版body */
-// body: SingleChildScrollView(
-// scrollDirection: Axis.vertical,
-// child: Container(
-// color: Color(0xffeff3f6),
-// child: Column(
-// children: [
-// HomeRecommendBanner(),
-// HomeRecommendSectionTitle("快速匹配"),
-// HomeRecommendGameView(),
-// HomeRecommendSectionTitle("发现好友"),
-// HomeRecommendTabView(),
-// ],
-// ),
-// )
-// )
