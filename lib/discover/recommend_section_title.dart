@@ -19,7 +19,8 @@ class HomeRecommendSectionTitle extends StatelessWidget {
         mTitle,
         style: TextStyle(
             fontSize: 17,
-            color:Colors.black
+            color:Color(0xff1e1e1e),
+            fontWeight: FontWeight.w500
         ),
       ),
     );

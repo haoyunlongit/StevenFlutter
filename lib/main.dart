@@ -1,15 +1,8 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'Discover/recommend_game_view.dart';
-import 'Discover/recommend_banner.dart';
-import 'Discover/recommend_section_title.dart';
-import 'Discover/recommend_tab_view.dart';
 import 'discover/home_app_banner_bg.dart';
 import 'discover/home_app_bar.dart';
 import 'discover/home_bottom_tab_bar.dart';
-import 'discover/recommend_rome_view.dart';
+import 'discover/home_container_view.dart';
 
 void main() => runApp(const MyApp());
 
@@ -19,29 +12,30 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const title = 'Horizontal List';
-    final width = window.physicalSize.width;
+    var homeAppBar = HomeAppbar();
+    var homeScrollerController = ScrollController();
+    var homeContainerView = HomeContainerView();
+    homeScrollerController.addListener(() {
+      double alpha = homeScrollerController.offset / 300;
+      if(alpha > 1.0) {
+        alpha = 1;
+      }
+      homeAppBar.setAlpha(alpha);
+      homeContainerView.setAlpha(alpha);
+    });
     return MaterialApp(
       title: title,
       home: Scaffold(
-        appBar: HomeAppbar(),
+        appBar: homeAppBar,
           body: Stack(
           children: [
             HomeAppBannerBg(),
             SingleChildScrollView(
+                controller: homeScrollerController,
                 scrollDirection: Axis.vertical,
                 child: Container(
                   color: Colors.transparent,
-                  child: Column(
-                    children: [
-                      HomeRecommendBanner(),
-                      HomeRecommendSectionTitle("快速匹配"),
-                      HomeRecommendGameView(),
-                      HomeRecommendSectionTitle("发现好友"),
-                      HomeRecommendTabView(),
-                      HomeRecommendRomeView(),
-                      HomeRecommendRomeView()
-                    ],
-                  ),
+                  child: homeContainerView,
                 )
             ),
             Container(
@@ -55,3 +49,5 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+
