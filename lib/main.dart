@@ -6,6 +6,7 @@ import 'Discover/recommend_game_view.dart';
 import 'Discover/recommend_banner.dart';
 import 'Discover/recommend_section_title.dart';
 import 'Discover/recommend_tab_view.dart';
+import 'discover/home_app_banner_bg.dart';
 import 'discover/home_app_bar.dart';
 import 'discover/home_bottom_tab_bar.dart';
 import 'discover/recommend_rome_view.dart';
@@ -25,12 +26,7 @@ class MyApp extends StatelessWidget {
         appBar: HomeAppbar(),
           body: Stack(
           children: [
-            Container(
-              color: Colors.blueGrey,
-              transform: Matrix4.translationValues(0, -100, 0),
-              width: width,
-              height: 300.0,
-            ),
+            HomeAppBannerBg(),
             SingleChildScrollView(
                 scrollDirection: Axis.vertical,
                 child: Container(
