@@ -6,7 +6,7 @@ class HomeAppbar extends StatefulWidget implements PreferredSizeWidget {
   HomeAppbarState state;
 
   HomeAppbar({
-    this.contentHeight = 50,
+    this.contentHeight = 60,
   }) : super();
 
   @override
@@ -47,21 +47,49 @@ class HomeAppbarState extends State<HomeAppbar> {
   Widget build(BuildContext context) {
     return new Container(
       color: bgColor,
-      child: new SafeArea(
+      child: SafeArea(
         top: true,
-        child: new Container(
+        child: Container(
             height: widget.contentHeight,
             child: new Stack(
-              alignment: Alignment.center,
               children: <Widget>[
                 Positioned(
                   right: 0,
-                  child: new Container(
-                    padding: const EdgeInsets.only(right: 30),
-                    child: Container (
-                      width: 30,
-                      height: 40,
-                      color: Colors.transparent,
+                  bottom: 0,
+                  child: Container(
+                    margin: EdgeInsets.only(bottom: 10),
+                    height: 24,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.only(topLeft: Radius.circular(12), bottomLeft: Radius.circular(12)),
+                        color: Color(0x80ffffff)
+                    ),
+                    child: Row(
+                      children: [
+                        Container(
+                          width: 2,
+                        ),
+                        ClipRRect(
+                            borderRadius: BorderRadius.circular(10),
+                            child: Container(
+                              width: 20,
+                              height: 20,
+                              decoration:  BoxDecoration(
+                                color: Color(0xffee5a63),
+                              ),
+                              child: Image.asset("images/test1.jpg"),
+                            )),
+                        Container(
+                          width: 4,
+                        ),
+                        Text(
+                          "天行健君子",
+                           style: TextStyle(
+                             color: Color(0xff1e1e1e),
+                             fontSize: 10,
+                             fontWeight: FontWeight.w500
+                           ),
+                        )
+                      ],
                     ),
                   ),
                 ),

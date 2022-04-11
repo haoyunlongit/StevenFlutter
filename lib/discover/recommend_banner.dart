@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 
 class HomeRecommendBanner extends StatefulWidget {
@@ -19,7 +20,7 @@ class HomeRecommendBannerState extends State<HomeRecommendBanner> {
   @override
   Widget build(BuildContext context) {
      return Container(
-       height: 213,
+       height: 203,
        margin: EdgeInsets.only(left: 16, right: 16, bottom: 0),
        child: new Swiper(
          itemBuilder: (BuildContext context,int index){

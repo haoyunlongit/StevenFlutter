@@ -1,3 +1,6 @@
 /build/
 /.dart_tool/
 /.idea/
+/.DS_Store
+/.flutter-plugins-dependencies
+/ios/.DS_Store
