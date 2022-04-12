@@ -60,7 +60,8 @@ class HomeRecommendCardView extends StatelessWidget {
                     style: TextStyle(
                         fontSize: 15.0,
                         fontWeight: FontWeight.w500,
-                        color: Color(0xff1e1e1e)
+                        color: Color(0xff1e1e1e),
+                       height: 1.2,
                     )
                 )
             ),

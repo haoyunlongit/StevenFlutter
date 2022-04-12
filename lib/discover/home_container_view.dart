@@ -19,13 +19,13 @@ class HomeContainerView extends StatefulWidget {
   }
 }
 
-List<String> titles = ["我的游戏", "我的游戏我的游戏,打发的方式我的游戏,打发的方式我的游戏,打发的方式", "我的游戏,打发的方式",
-  "我的游戏,打发的方式我的游戏,打发的方式", "我的游戏,打发的方式我的游戏,打发的方式我的游戏,打发的方式", "我的游戏,打发的方式",
-  "我的游戏,打发的方式我的游戏,打发的方式我的游戏,打发的方式", "我的游戏", "我的游戏我的游戏,打发的方式我的游戏,打发的方式我的游戏,打发的方式", "我的游戏,打发的方式",
-  "我的游戏,打发的方式我的游戏,打发的方式", "我的游戏,打发的方式我的游戏,打发的方式我的游戏,打发的方式", "我的游戏,打发的方式",
-  "我的游戏,打发的方式我的游戏,打发的方式我的游戏,打发的方式", "我的游戏", "我的游戏我的游戏,打发的方式我的游戏,打发的方式我的游戏,打发的方式", "我的游戏,打发的方式",
-  "我的游戏,打发的方式我的游戏,打发的方式", "我的游戏,打发的方式我的游戏,打发的方式我的游戏,打发的方式", "我的游戏,打发的方式",
-  "我的游戏,打发的方式我的游戏,打发的方式我的游戏,打发的方式"];
+List<String> titles = ["0我的游戏0", "1我的游戏我的游戏,打发的方式我的游戏,打发的方式我的游戏,打发的方式1", "2我的游戏,打发的方式2",
+  "3我的游戏,打发的方式我的游戏,打发的方式3", "4我的游戏,打发的方式我的游戏,打发的方式我的游戏,打发的方式4", "5我的游戏,打发的方式5",
+  "6我的游戏,打发的方式我的游戏,打发的方式我的游戏,打发的方式6", "7我的游戏7", "8我的游戏我的游戏,打发的方式我的游戏,打发的方式我的游戏,打发的方式8", "9我的游戏,打发的方式9",
+  "10我的游戏,打发的方式我的游戏,打发的方式10", "11我的游戏,打发的方式我的游戏,打发的方式我的游戏,打发的方式11", "12我的游戏,打发的方式12",
+  "13我的游戏,打发的方式我的游戏,打发的方式我的游戏,打发的方式13", "14我的游戏14", "15我的游戏我的游戏,打发的方式我的游戏,打发的方式我的游戏,打发的方式15", "16我的游戏,打发的方式16",
+  "17我的游戏,打发的方式我的游戏,打发的方式17", "18我的游戏,打发的方式我的游戏,打发的方式我的游戏,打发的方式18", "19我的游戏,打发的方式19",
+  "20我的游戏,打发的方式我的游戏,打发的方式我的游戏,打发的方式20"];
 
 class HomeContainerViewState extends State<HomeContainerView> {
   Color bgColor = Color(0x00eff3f6);
@@ -35,43 +35,30 @@ class HomeContainerViewState extends State<HomeContainerView> {
 
   @override
   Widget build(BuildContext context) {
-     return StaggeredGridView.countBuilder(
-       controller: scrollController,
-       crossAxisCount: 2,   //横轴单元格数量
-       itemCount: 4 + titles.length,
-       itemBuilder: (context, i) {
-         switch(i) {
-           case 0: {
-              return HomeRecommendBanner();
-           }
-           case 1: {
-             return HomeRecommendSectionTitle("快速匹配");
-           }
-           case 2: {
-             return HomeRecommendGameView();
-           }
-           case 3: {
-             return HomeRecommendSectionTitle("发现好友");
-           }
-           case 4: {
-             return HomeRecommendTabView();
-           }
-           default: {
-             return HomeRecommendRomeView(i, titles[i - 5]);
-           }
-         }
-       },
-       staggeredTileBuilder: (index){
-         if(index >= 0 && index <= 4) {
-           return StaggeredTile.fit(2);
-         } else {
-           return StaggeredTile.fit(1);
-         }//第一个参数是横轴所占的单元数，第二个参数是主轴所占的单元数
-       },
-       // padding: EdgeInsets.all(8),
-       // mainAxisSpacing: 8.0,
-       // crossAxisSpacing: 8.0,
-     );
+    return ListView(
+      children: [
+        HomeRecommendBanner(),
+        HomeRecommendSectionTitle("快速匹配"),
+        HomeRecommendGameView(),
+        HomeRecommendSectionTitle("发现好友"),
+        HomeRecommendTabView(),
+        StaggeredGridView.countBuilder(
+            controller: scrollController,
+            padding: EdgeInsets.only(left: 16, right: 16),
+            crossAxisSpacing: 7.0,
+            crossAxisCount: 2,
+            shrinkWrap: true,
+            physics: new NeverScrollableScrollPhysics(),
+            itemCount: titles.length,
+            itemBuilder: (context, i) {
+              return HomeRecommendRomeView(i, titles[i]);
+            },
+            staggeredTileBuilder: (index){
+              return StaggeredTile.fit(1);
+            }
+        )
+      ],
+    );
   }
 
   void setAlpha(double alpha) {
