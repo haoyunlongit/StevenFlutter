@@ -54,7 +54,6 @@ class HomeRecommendGameSubView1 extends StatelessWidget {
                     child: Image.network(webpUrl, fit: BoxFit.cover),
                  ),
                  Container(
-                     margin: EdgeInsets.only(top: 10, left: 10),
                      child: HomeRecommendLabelView("全城嗨玩")
                  ),
                  Container(
@@ -72,17 +71,44 @@ class HomeRecommendGameSubView1 extends StatelessWidget {
                      )
                  ),
                  Container(
-                     alignment: Alignment.bottomLeft,
+                     alignment: Alignment.bottomCenter,
                      margin: EdgeInsets.only(bottom: 12, left: 10),
                      padding: EdgeInsets.only(top: 2, bottom: 2),
-                     child: Text(
-                         '魔性一扯到底',
-                         textAlign: TextAlign.center,
-                         style: TextStyle(
-                             fontSize: 11.0,
-                             fontWeight: FontWeight.w500,
-                             color: Colors.white
+                     child: Row (
+                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                       children: [
+                         Text(
+                             '魔性一扯到底',
+                             textAlign: TextAlign.center,
+                             style: TextStyle(
+                                 fontSize: 11.0,
+                                 fontWeight: FontWeight.w500,
+                                 color: Colors.white
+                             )
+                         ),
+                         FittedBox(
+                             fit: BoxFit.fitWidth,
+                             child: Container(
+                               alignment: Alignment.center,
+                               decoration: BoxDecoration(
+                                 color: Colors.white,
+                                 borderRadius: BorderRadius.all(Radius.circular(10)),
+                               ),
+                               margin: EdgeInsets.only(right: 10),
+                               padding: EdgeInsets.only(top: 4, bottom: 4, left: 6, right: 6),
+                               child: Text(
+                                 "立即玩",
+                                 textAlign: TextAlign.center,
+                                 maxLines: 1,
+                                 style: TextStyle(
+                                     fontSize: 11,
+                                     color: Color(0xFF3DB7DB),
+                                     fontWeight: FontWeight.w500
+                                 ),
+                               ),
+                             )
                          )
+                       ],
                      )
                  )
                ],
@@ -118,7 +144,6 @@ class HomeRecommendGameSubView2 extends StatelessWidget {
                    ),
                  ),
                  Container(
-                     margin: EdgeInsets.only(top: 10, left: 10),
                      child: HomeRecommendLabelView("全城嗨玩")
                  ),
                  Container(
@@ -170,7 +195,6 @@ class HomeRecommendGameSubView2 extends StatelessWidget {
                    ),
                  ),
                  Container(
-                     margin: EdgeInsets.only(top: 10, left: 10),
                      child: HomeRecommendLabelView("全城嗨玩")
                  ),
                  Container(

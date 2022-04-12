@@ -16,7 +16,8 @@ class HomeRecommendLabelView extends StatelessWidget {
           alignment: Alignment.center,
           decoration: BoxDecoration(
               color: Color(0xffff9177),
-              borderRadius: BorderRadius.all(Radius.circular(6))
+              borderRadius: BorderRadius.only(topLeft: Radius.circular(10),
+                  bottomRight: Radius.circular(10)),
           ),
           padding: EdgeInsets.only(top: 4, bottom: 4, left: 6, right: 6),
           child: Text(
