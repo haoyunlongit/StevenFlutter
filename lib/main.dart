@@ -14,14 +14,14 @@ class MyApp extends StatelessWidget {
     const title = 'Horizontal List';
     var homeAppBar = HomeAppbar();
     var homeScrollerController = ScrollController();
-    var homeContainerView = HomeContainerView();
+    var homeAppBannerBg = HomeAppBannerBg();
     homeScrollerController.addListener(() {
       double alpha = homeScrollerController.offset / 300;
       if(alpha > 1.0) {
         alpha = 1;
       }
       homeAppBar.setAlpha(alpha);
-      homeContainerView.setAlpha(alpha);
+      homeAppBannerBg.setAlpha(alpha);
     });
     return MaterialApp(
       title: title,
@@ -29,15 +29,8 @@ class MyApp extends StatelessWidget {
         appBar: homeAppBar,
           body: Stack(
           children: [
-            HomeAppBannerBg(),
-            SingleChildScrollView(
-                controller: homeScrollerController,
-                scrollDirection: Axis.vertical,
-                child: Container(
-                  color: Colors.transparent,
-                  child: homeContainerView,
-                )
-            ),
+            homeAppBannerBg,
+            HomeContainerView(homeScrollerController),
             Container(
                 alignment: Alignment.bottomCenter,
                 padding: EdgeInsets.only(top: 66, bottom: 20),

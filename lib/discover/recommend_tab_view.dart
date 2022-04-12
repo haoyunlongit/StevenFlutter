@@ -16,7 +16,7 @@ class CustomTabPageState extends State<HomeRecommendTabView> with TickerProvider
           return SingleChildScrollView(
                scrollDirection: Axis.horizontal,
                child: Container(
-                    margin: EdgeInsets.only(top: 4, bottom: 4, left: 12.5, right: 12.5),
+                    margin: EdgeInsets.only(top: 4, bottom: 16, left: 12.5, right: 12.5),
                     child: Row(
                          children: _titleList.map((e) => GestureDetector(
                               child: Container(

@@ -1,9 +1,19 @@
+import 'dart:math';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../constant/constant.dart';
 
 class HomeRecommendRomeView extends StatefulWidget {
+  int mIndex = 0;
+  String mText = "";
+
+  HomeRecommendRomeView(int index, String text) {
+    mIndex = index;
+    mText = text;
+  }
+
   @override
   State<StatefulWidget> createState() {
      return HomeRecommendRomeState();
@@ -20,15 +30,14 @@ class HomeRecommendRomeState extends State<HomeRecommendRomeView> {
 class HomeRecommendCardView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final size =MediaQuery.of(context).size;
+    final HomeRecommendRomeView widget = context.findAncestorWidgetOfExactType<HomeRecommendRomeView>();
+    final size = MediaQuery.of(context).size;
     final double containerWidth = (size.width - Constant.COMMON_VIEW_MARGIN * 2 - 7) / 2;
-    return Container(
-      margin: EdgeInsets.only(top: 12, left: Constant.COMMON_VIEW_MARGIN, right: Constant.COMMON_VIEW_MARGIN, bottom: 16),
-      child: Row(
-        children: [
-          Column(
-            children: [
-              ClipRRect(
+    return Row(
+      children: [
+        Column(
+          children: [
+            ClipRRect(
                 borderRadius: BorderRadius.circular(12),
                 child: Container(
                   width: containerWidth,
@@ -38,14 +47,15 @@ class HomeRecommendCardView extends StatelessWidget {
                   ),
                   child: Image.asset("images/test1.jpg"),
                 )),
-              Container(
-                  height: 8.0
-              ),
-              Container(
+            SizedBox(
+                height: 8.0
+            ),
+            Container(
                 width: containerWidth,
                 alignment: Alignment.centerLeft,
                 child: Text(
-                    '明星陪你一起玩游戏',
+                    widget.mText,
+                    maxLines: 2,
                     textAlign: TextAlign.start,
                     style: TextStyle(
                         fontSize: 15.0,
@@ -53,42 +63,13 @@ class HomeRecommendCardView extends StatelessWidget {
                         color: Color(0xff1e1e1e)
                     )
                 )
-              )
-            ],
-          ),
-          Container(
-              width: 7.0
-          ),
-          Column(
-            children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(12),
-                child:Container(
-                  width: containerWidth,
-                  height: containerWidth,
-                  child: Image.asset("images/test2.jpg"),
-                )
-              ),
-              Container(
-                  height: 8.0
-              ),
-              Container(
-                width: containerWidth,
-                alignment: Alignment.centerLeft,
-                child: Text(
-                    '明星陪你一起玩游戏',
-                    textAlign: TextAlign.start,
-                    style: TextStyle(
-                        fontSize: 15.0,
-                        fontWeight: FontWeight.w500,
-                        color: Color(0xff1e1e1e)
-                    )
-                ),
-              )
-            ],
-          )
-        ],
-      ),
+            ),
+            SizedBox(
+                height: 16.0
+            )
+          ],
+        ),
+      ],
     );
   }
 
