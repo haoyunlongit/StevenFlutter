@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'discover/home_app_banner_bg.dart';
 import 'discover/home_app_bar.dart';
 import 'discover/home_bottom_tab_bar.dart';
 import 'discover/home_container_view.dart';
+import 'get/get_widget.dart';
 
 void main() => runApp(const MyApp());
 
@@ -23,21 +25,11 @@ class MyApp extends StatelessWidget {
       homeAppBar.setAlpha(alpha);
       homeAppBannerBg.setAlpha(alpha);
     });
-    return MaterialApp(
+    return GetMaterialApp(
       title: title,
       home: Scaffold(
         appBar: homeAppBar,
-          body: Stack(
-          children: [
-            homeAppBannerBg,
-            HomeContainerView(homeScrollerController),
-            Container(
-                alignment: Alignment.bottomCenter,
-                padding: EdgeInsets.only(top: 66, bottom: 20),
-                child: HomeBottomTabbar()
-            ),
-          ],
-        )
+          body: getWidget()
       ),
     );
   }

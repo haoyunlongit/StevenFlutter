@@ -36,6 +36,8 @@ dependencies:
   cached_network_image : ^3.2.0
 
   flutter_screenutil: ^5.0.0 #ui适配工具
+
+  get: ^4.6.1
 dev_dependencies:
   flutter_test:
     sdk: flutter
